@@ -1,0 +1,26 @@
+name: ParallelQueueMonitor
+
+run-name: ParallelQueueMonitor-${{github.run_number}}
+
+# Note that the schedule only executes on the main branch
+# Run every hour at 55 minutes past
+on:
+  # schedule:
+  #   - cron: '55 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ParallelQueueMonitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Move config
+        run: |
+          mv config-template.yaml config.yaml
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.7
+
