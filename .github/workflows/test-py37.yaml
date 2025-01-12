@@ -16,9 +16,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Move config
-        run: |
-          mv config-template.yaml config.yaml
+      # - name: Move config
+      #   run: |
+      #     mv config-template.yaml config.yaml
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
